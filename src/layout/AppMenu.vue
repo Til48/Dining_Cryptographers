@@ -5,9 +5,20 @@ import AppMenuItem from './AppMenuItem.vue';
 
 const model = ref([
     {
-        label: 'Home',
-        items: [{ label: 'Theorem', icon: 'pi pi-fw pi-home', to: '/' }]       
+        label: 'Discover',
+        items: [{ label: 'Landing page', icon: 'pi pi-fw pi-home', to: '/uikit/landingpage' },
+                { label: 'Simulation', icon: 'pi pi-fw pi-search', to: '/uikit/simulation' },
+                { label: 'About', icon: 'pi pi-fw pi-globe', to: '' },
+            ]
     },
+    {
+        label: 'Theorem',
+        items: [{ label: 'DC Problem', icon: 'pi pi-fw pi-list', to: '/uikit/dcproblem' },
+                { label: 'Additional info', icon: 'pi pi-fw pi-tablet', to: '' },
+                ]
+    },
+
+    /*
     {
         label: 'UI Components',
         items: [
@@ -167,6 +178,9 @@ const model = ref([
             }
         ]
     }
+
+    */
+    
 ]);
 </script>
 
@@ -176,12 +190,18 @@ const model = ref([
             <app-menu-item v-if="!item.separator" :item="item" :index="i"></app-menu-item>
             <li v-if="item.separator" class="menu-separator"></li>
         </template>
+
+        <!--
         <li>
             <a href="https://www.primefaces.org/primeblocks-vue/#/" target="_blank">
                 <img src="/layout/images/banner-primeblocks.png" alt="Prime Blocks" class="w-full mt-3" />
             </a>
         </li>
+        -->
+
     </ul>
+
+    
 </template>
 
 <style lang="scss" scoped></style>

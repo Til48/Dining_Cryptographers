@@ -11,7 +11,7 @@ const router = createRouter({
                 {
                     path: '/',
                     name: 'dashboard',
-                    component: () => import('@/views/Dashboard.vue')
+                    component: () => import('@/views/uikit/Landingpage.vue') //changes
                 },
                 {
                     path: '/uikit/formlayout',
@@ -37,6 +37,47 @@ const router = createRouter({
                     path: '/uikit/button',
                     name: 'button',
                     component: () => import('@/views/uikit/Button.vue')
+                },
+                //changes done here
+                {
+                    path: '/uikit/simulation',
+                    name: 'simulation',
+                    component: () => import('@/views/uikit/Simulation.vue')
+                },
+                {
+                    path: '/uikit/dcproblem',
+                    name: 'dcproblem',
+                    component: () => import('@/views/uikit/DCProblem.vue')
+                },
+                {
+                    path: '/uikit/povB',
+                    name: 'povB',
+                    component: () => import('@/views/uikit/povB.vue')
+                },
+                {
+                    path: '/uikit/povC',
+                    name: 'povC',
+                    component: () => import('@/views/uikit/povC.vue')
+                },
+                {
+                    path: '/uikit/povD',
+                    name: 'povD',
+                    component: () => import('@/views/uikit/povD.vue')
+                },
+                {
+                    path: '/uikit/povE',
+                    name: 'povE',
+                    component: () => import('@/views/uikit/povE.vue')
+                },
+                {
+                    path: '/uikit/povuser',
+                    name: 'povuser',
+                    component: () => import('@/views/uikit/povuser.vue')
+                },
+                {
+                    path: '/uikit/landingpage',
+                    name: 'Landing page',
+                    component: () => import('@/views/uikit/Landingpage.vue')
                 },
                 {
                     path: '/uikit/table',
@@ -149,7 +190,7 @@ const router = createRouter({
             component: () => import('@/views/pages/Landing.vue')
         },
         {
-            path: '/pages/notfound',
+            path: '/pages/notfound ',
             name: 'notfound',
             component: () => import('@/views/pages/NotFound.vue')
         },

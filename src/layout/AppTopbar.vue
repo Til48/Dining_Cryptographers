@@ -62,15 +62,19 @@ const isOutsideClicked = (event) => {
 
 <template>
     <div class="layout-topbar">
-        <router-link to="/" class="layout-topbar-logo">
-            <img :src="logoUrl" alt="logo" />
-            <span>Dining Cryptographers</span>
-        </router-link>
 
         <button class="p-link layout-menu-button layout-topbar-button" @click="onMenuToggle()">
             <i class="pi pi-bars"></i>
         </button>
 
+        <router-link to="/uikit/landingpage" class="layout-topbar-logo">
+           <!-- <img :src="logoUrl" alt="logo" /> -->
+            <span>Dining Cryptographers</span>
+        </router-link>
+
+        
+
+        <!--
         <button class="p-link layout-topbar-menu-button layout-topbar-button" @click="onTopBarMenuButton()">
             <i class="pi pi-ellipsis-v"></i>
         </button>
@@ -89,7 +93,20 @@ const isOutsideClicked = (event) => {
                 <span>Settings</span>
             </button>
         </div>
+        -->
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+button{
+    margin:0 !important;
+    padding-right:30px !important;
+}
+
+@media (max-width: 991px) {
+    .layout-topbar {
+        justify-content: flex-start !important;
+    }
+}
+</style>
