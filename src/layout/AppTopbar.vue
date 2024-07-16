@@ -101,7 +101,8 @@ const isOutsideClicked = (event) => {
 
 button{
     margin:0 !important;
-    padding-right:30px !important;
+    padding-right:0px !important;
+    background-color: rgb(255, 255, 255);
 }
 
 @media (max-width: 991px) {

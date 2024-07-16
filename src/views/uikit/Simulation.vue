@@ -45,6 +45,14 @@ const shared_key = ref(null);
                       <td>0</td>
                     </tr>
                     <tr>
+                      <td>AC</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>AD</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
                       <td>AE</td>
                       <td>1</td>
                     </tr>
@@ -82,16 +90,39 @@ const shared_key = ref(null);
                   </table>
             </div>
 
-            <div class="card fig">
+            <div class="card table1">
                 
-                <div class="circle">
-                    <div class="block dinerA">A</div>
-                    <div class="block dinerB">B</div>
-                    <div class="block dinerC">C</div>
-                    <div class="block dinerD">D</div>
-                    <div class="block dinerE">E</div>
-                    <div class="block result">Result:</div>
-                </div>
+                <h5>POV A</h5>
+                <table>
+                    <tr>
+                      <th>Broadcast</th>
+                      <th>Value</th>
+                    </tr>
+                    <tr>
+                      <td>A</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>E</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Result</td>
+                        <td>1</td>
+                    </tr>
+                  </table>
             </div>
 
         </div>

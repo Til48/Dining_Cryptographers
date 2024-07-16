@@ -17,7 +17,7 @@ const shared_key = ref(null);
 
 <template>
     <div class="card button">
-        <a href="/uikit/simulation">
+        <a href="/uikit/povA">
         <Button label="POV A" severity="secondary" class="mb-2 mr-2 secondary" /> </a>
         <a href="/uikit/povB">
         <Button label="POV B" severity="secondary"  class="mb-2 mr-2 secondary " /> </a>
@@ -41,19 +41,40 @@ const shared_key = ref(null);
                       <th>Value</th>
                     </tr>
                     <tr>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <td></td>
+                      <td>AB</td>
                       <td></td>
                     </tr>
                     <tr>
-                      <td></td>
+                      <td>AC</td>
                       <td></td>
                     </tr>
                     <tr>
+                      <td>AD</td>
                       <td></td>
+                    </tr>
+                    <tr>
+                      <td>AE</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                        <td>BC</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                        <td>BD</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                        <td>BE</td>
+                        <td></td></tr>
+                    <tr><td>DE</td>
+                        <td></td></tr>
+                    <tr>
+                        <td>CD</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                        <td>CE</td>
                       <td></td>
                     </tr>
                   </table>
@@ -90,16 +111,39 @@ const shared_key = ref(null);
                   </table>
             </div>
 
-            <div class="card fig">
+            <div class="card table1">
+                <h5>POV user</h5>
+                <table>
+                    <tr>
+                      <th>Broadcast</th>
+                      <th>Value</th>
+                    </tr>
+                    <tr>
+                      <td>A</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>C</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>D</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                        <td>E</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Result</td>
+                        <td></td>
+                    </tr>
+                  </table>
                 
-                <div class="circle">
-                    <div class="block dinerA">A</div>
-                    <div class="block dinerB">B</div>
-                    <div class="block dinerC">C</div>
-                    <div class="block dinerD">D</div>
-                    <div class="block dinerE">E</div>
-                    <div class="block result">Result:</div>
-                </div>
             </div>
 
         </div>

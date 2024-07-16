@@ -52,36 +52,57 @@ const totalXOR = computed(() => calculateTotalXOR());
 
 <template>
     <div class="card button">
-        <a href="/uikit/povA">
-        <Button label="POV A" severity="secondary" class="mb-2 mr-2 secondary" /> </a>
-        <a href="/uikit/povB">
-        <Button label="POV B" severity="secondary"  class="mb-2 mr-2 secondary " /> </a>
-        <a href="/uikit/povC">
-        <Button label="POV C" severity="secondary"  class="mb-2 mr-2 secondary raised" /> </a>
-        <a href="/uikit/povD">
+        <a href="/uikit/povAfull">
+        <Button label="POV A" severity="secondary"  class="mb-2 mr-2 secondary" /> </a>
+        <a href="/uikit/povBfull">
+        <Button label="POV B" severity="secondary"  class="mb-2 mr-2 secondary" /> </a>
+        <a href="/uikit/povCfull">
+        <Button label="POV C" severity="secondary"  class="mb-2 mr-2 secondary" /> </a>
+        <a href="/uikit/povDfull">
         <Button label="POV D" severity="secondary"  class="mb-2 mr-2 secondary" /> </a>
-        <a href="/uikit/povE">
+        <a href="/uikit/povEfull">
         <Button label="POV E" severity="secondary"  class="mb-2 mr-2 secondary" /> </a>
-        <a href="/uikit/povuser">
-        <Button label="POV User" severity="secondary"  class="mb-2 mr-2 secondary" /> </a>
+        <a href="/uikit/povUserfull">
+        <Button label="POV User" severity="secondary"  class="mb-2 mr-2 secondary raised" /> </a>
     </div>
 
     <div class="main">
         <div class="container card">
+
             <div class="card table1">
-                <h5>POV C</h5>
+                <h5>POV User full</h5>
                 <table>
                     <tr>
                       <th>Shared Key</th>
                       <th>Value</th>
                     </tr>
                     <tr>
-                      <td>CA</td>
+                      <td>AB</td>
+                      <td>{{ sharedSecrets.AB }}</td>
+                    </tr>
+                    <tr>
+                      <td>AC</td>
                       <td>{{ sharedSecrets.AC }}</td>
                     </tr>
                     <tr>
-                      <td>CB</td>
+                      <td>AD</td>
+                      <td>{{ sharedSecrets.AD }}</td>
+                    </tr>
+                    <tr>
+                      <td>AE</td>
+                      <td>{{ sharedSecrets.AE }}</td>
+                    </tr>
+                    <tr>
+                      <td>BC</td>
                       <td>{{ sharedSecrets.BC }}</td>
+                    </tr>
+                    <tr>
+                      <td>BD</td>
+                      <td>{{ sharedSecrets.BD }}</td>
+                    </tr>
+                    <tr>
+                      <td>BE</td>
+                      <td>{{ sharedSecrets.BE }}</td>
                     </tr>
                     <tr>
                       <td>CD</td>
@@ -91,7 +112,10 @@ const totalXOR = computed(() => calculateTotalXOR());
                       <td>CE</td>
                       <td>{{ sharedSecrets.CE }}</td>
                     </tr>
-
+                    <tr>
+                      <td>DE</td>
+                      <td>{{ sharedSecrets.DE }}</td>
+                    </tr>
                   </table>
             </div>
 
@@ -125,59 +149,28 @@ const totalXOR = computed(() => calculateTotalXOR());
                     <tr class="Result">
                         <td>Result</td>
                         <td>{{ totalXOR }}</td>
-                    </tr>
+                    </tr> 
                   </table>
-            </div>
-
-            <div class="card table1">
-                
-                <h5>POV C</h5>
-                <table>
-                    <tr>
-                      <th>Broadcast</th>
-                      <th>Value</th>
-                    </tr>
-                    <tr>
-                      <td>A</td>
-                      <td>0</td>
-                    </tr>
-                    <tr>
-                      <td>B</td>
-                      <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>C</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>D</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>E</td>
-                        <td>1</td>
-                    </tr>
-                    <tr>
-                        <td>Result</td>
-                        <td>1</td>
-                    </tr>
-                </table>
             </div>
 
         </div>
     </div>
-    
-    
-    <div class="card">
-        <h4>Select Cryptographer</h4>
-        <p class="subheading">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <FloatLabel>
-            <Dropdown id="dropdown" :options="Cryptographer" v-model="value" optionLabel="name"></Dropdown>
-            <label for="dropdown">Who is payer?</label>
-        </FloatLabel>
-        
+
+    <div>
+      <h3 class="paid">{{ totalXOR === 1 ?  "Cryptographer paid!" : "The NSA paid!"  }}</h3>  <!--- print the result who paid the bill: "Cryptographer paid" or "NSA paid" -->
     </div>
 
+    <div class="card">
+      <h3>POV A: </h3>
+            <p><b>Step 1: </b></p>
+              <p>The first step of the calculation involves every Cryptographer creating shared one-bit secrets (either 0 or 1) with every other cryptographer at the table. They do this in secret so none other than themselves can see that shared secret. They can do this through flipping a coin behind a menu card or behind their back.</p>
+              <p><b>Step 2: </b></p>
+              <p>In the second step they all announce a Bit under the following circumstances.</p>
+              <p>If they didn’t pay, they calculate the XOR of all shared secrets they know of.</p>
+              <p>If they paid for the meal, they calculate the XOR of all shared secrets they know of and invert that value at the end. E.g. if one calculated value is 1, it’s inverted to 0 and then announced.</p>
+              <p><b>Step 3: </b></p>
+              <p>The last step involves the calculation of all announced Bits via XOR. If the final value is 1 one of the cryptographers paid. If the final value is 0, none of them paid. The result makes sure that none of the cryptographers at the table can identify who exactly paid if the value is 1. They simply know that no other entity was listening.</p>
+    </div>
 
 </template>
 
@@ -194,13 +187,10 @@ const totalXOR = computed(() => calculateTotalXOR());
 .container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     gap: 20px;
     width: 100%;
     margin-bottom: 20px;
-}
-.fig{
-    grid-area: 1/2/3/3;
 }
 
 @media(max-width:1000px){
@@ -222,14 +212,7 @@ const totalXOR = computed(() => calculateTotalXOR());
 .secondary {
     background-color: rgb(229, 247, 215);
 }
-.subheading {
-    padding-bottom: 20px;
-}
-#dropdown{
-    width: 250px;
-    font-weight: 600;
-    background: linear-gradient(rgb(191, 238, 191), rgb(249, 225, 225));
-}
+
 table{
         border-collapse: collapse;
         text-align: center;
@@ -245,72 +228,18 @@ th{
 td{
     padding: 7px;
 }
-
-.circle{
-    position: relative;
-    top:30px;
-    width: 280px;
-    height: 280px;
-    border: 3px solid black;
-    border-radius: 50%;
-    margin: auto;
-    background: repeating-radial-gradient(rgb(248, 226, 226),rgb(165, 221, 254)); 
+.Result{
+  border-top: 3px solid black;
+  border-bottom: none;
+  color: rgb(4, 177, 123);
+  font-weight: 600;
 }
-
-.block{
-    width: 80px;
-    height: 50px;
-    margin:20px;
-    background: radial-gradient(rgb(227, 241, 207),rgb(209, 249, 196));
-    text-align: center;
-    padding: 15px;
-    font-weight: 600;
+.paid{
+  color: rgb(24, 116, 85);
+  text-align: center;
+  margin: 15px 0 25px;
+  font-size: 3rem;
+  font-weight: 600;
 }
-
-.dinerA{
-    position: absolute;
-    top: -80px;
-    left: 75px;
-}
-.dinerB{
-    position: absolute;
-    top:20px;
-    left: 250px;
-}
-.dinerC{
-    position: absolute;
-    bottom: -20px;
-    left: 230px;
-}
-.dinerD{
-    position: absolute;
-    bottom: -20px;
-    right: 230px;
-}
-.dinerE{
-    position: absolute;
-    top: 20px;
-    right: 250px;
-}
-.result{
-    position: absolute;
-    top:90px;
-    left:80px;
-    width: fit-content;
-    background: rgb(82, 139, 182) !important;
-    color: aliceblue;
-
-}
-
-@media(min-width:1000px){
-    .circle{
-        top: 100px;
-    }
-}
-
-
-
 
 </style>
-
-

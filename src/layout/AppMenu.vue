@@ -6,17 +6,17 @@ import AppMenuItem from './AppMenuItem.vue';
 const model = ref([
     {
         label: 'Discover',
-        items: [{ label: 'Landing page', icon: 'pi pi-fw pi-home', to: '/uikit/landingpage' },
-                { label: 'Simulation', icon: 'pi pi-fw pi-search', to: '/uikit/simulation' },
-                { label: 'About', icon: 'pi pi-fw pi-globe', to: '' },
+        items: [{ label: 'Start', icon: 'pi pi-fw pi-home', to: '/uikit/landingpage' },
+                { label: 'Simulation', icon: 'pi pi-fw pi-search', to: '/uikit/setting' },
+                { label: 'About the Problem', icon: 'pi pi-fw pi-globe', to: '/uikit/About' },
             ]
     },
-    {
+    /*{
         label: 'Theorem',
         items: [{ label: 'DC Problem', icon: 'pi pi-fw pi-list', to: '/uikit/dcproblem' },
                 { label: 'Additional info', icon: 'pi pi-fw pi-tablet', to: '' },
                 ]
-    },
+    /*},
 
     /*
     {

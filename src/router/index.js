@@ -39,10 +39,10 @@ const router = createRouter({
                     component: () => import('@/views/uikit/Button.vue')
                 },
                 //changes done here
-                {
-                    path: '/uikit/simulation',
-                    name: 'simulation',
-                    component: () => import('@/views/uikit/Simulation.vue')
+                {  
+                    path: '/uikit/Setting',
+                    name: 'Simulation',
+                    component: () => import('@/views/uikit/Setting.vue')
                 },
                 {
                     path: '/uikit/dcproblem',
@@ -50,34 +50,84 @@ const router = createRouter({
                     component: () => import('@/views/uikit/DCProblem.vue')
                 },
                 {
-                    path: '/uikit/povB',
-                    name: 'povB',
-                    component: () => import('@/views/uikit/povB.vue')
+                    path: '/uikit/povAring',
+                    name: 'Ring',
+                    component: () => import('@/views/uikit/povAring.vue')
                 },
                 {
-                    path: '/uikit/povC',
-                    name: 'povC',
-                    component: () => import('@/views/uikit/povC.vue')
+                    path: '/uikit/povAfull',
+                    name: 'Complete graph',
+                    component: () => import('@/views/uikit/povAfull.vue')
                 },
                 {
-                    path: '/uikit/povD',
-                    name: 'povD',
-                    component: () => import('@/views/uikit/povD.vue')
+                    path: '/uikit/povAring',
+                    name: 'povAring',
+                    component: () => import('@/views/uikit/povAring.vue')
                 },
                 {
-                    path: '/uikit/povE',
-                    name: 'povE',
-                    component: () => import('@/views/uikit/povE.vue')
+                    path: '/uikit/povAfull',
+                    name: 'povAfull',
+                    component: () => import('@/views/uikit/povAfull.vue')
                 },
                 {
-                    path: '/uikit/povuser',
-                    name: 'povuser',
-                    component: () => import('@/views/uikit/povuser.vue')
+                    path: '/uikit/povBring',
+                    name: 'povBring',
+                    component: () => import('@/views/uikit/povBring.vue')
+                },
+                {
+                    path: '/uikit/povBfull',
+                    name: 'povBfull',
+                    component: () => import('@/views/uikit/povBfull.vue')
+                },
+                {
+                    path: '/uikit/povCring',
+                    name: 'povCring',
+                    component: () => import('@/views/uikit/povCring.vue')
+                },
+                {
+                    path: '/uikit/povCfull',
+                    name: 'povCfull',
+                    component: () => import('@/views/uikit/povCfull.vue')
+                },
+                {
+                    path: '/uikit/povDring',
+                    name: 'povDring',
+                    component: () => import('@/views/uikit/povDring.vue')
+                },
+                {
+                    path: '/uikit/povDfull',
+                    name: 'povDfull',
+                    component: () => import('@/views/uikit/povDfull.vue')
+                },
+                {
+                    path: '/uikit/povEring',
+                    name: 'povEring',
+                    component: () => import('@/views/uikit/povEring.vue')
+                },
+                {
+                    path: '/uikit/povEfull',
+                    name: 'povEfull',
+                    component: () => import('@/views/uikit/povEfull.vue')
+                },
+                {
+                    path: '/uikit/povUserring',
+                    name: 'povUserring',
+                    component: () => import('@/views/uikit/povUserring.vue')
+                },
+                {
+                    path: '/uikit/povUserfull',
+                    name: 'povUserfull',
+                    component: () => import('@/views/uikit/povUserfull.vue')
                 },
                 {
                     path: '/uikit/landingpage',
                     name: 'Landing page',
                     component: () => import('@/views/uikit/Landingpage.vue')
+                },
+                {
+                    path: '/uikit/About',
+                    name: 'About',
+                    component: () => import('@/views/uikit/About.vue')
                 },
                 {
                     path: '/uikit/table',

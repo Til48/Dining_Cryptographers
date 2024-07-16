@@ -1,23 +1,58 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, computed } from 'vue';
+import { useStore } from 'vuex';
 
-const Cryptographer = ref([
-    { name: 'Cryptographer A'},
-    { name: 'Cryptographer B'},
-    { name: 'Cryptographer C'},
-    { name: 'Cryptographer D'},
-    { name: 'Cryptographer E'},
-    { name: 'None'}
-]);
+const store = useStore();
+const sharedSecrets = ref({});
+const payer = ref(null);
 
-const value = ref(null);
-const shared_key = ref(null);
+const randomizeSharedSecrets = () => {
+  store.dispatch('randomizeSharedSecrets');
+};
+
+onMounted(() => {
+  // Abrufen des Payer-Werts aus dem localStorage
+  const storedPayer = localStorage.getItem('payer');
+  payer.value = storedPayer ? JSON.parse(storedPayer).value : null;
+
+  store.subscribe((mutation, state) => {
+    if (mutation.type === 'SET_SHARED_SECRETS') {
+      sharedSecrets.value = state.sharedSecrets || {};
+    }
+  });
+  sharedSecrets.value = store.getters.getSharedSecrets || {};
+});
+
+// Funktion zum Berechnen des XOR von mehreren Werten
+const calculateXOR = (...args) => {
+  return args.reduce((acc, val) => acc ^ val, 0);
+};
+
+// Funktion zum Berechnen des invertierten XOR-Ergebnisses (bitweises Inverse)
+const calculateInvertedXOR = (...args) => {
+  const xorResult = calculateXOR(...args);
+  return xorResult ^ 1; // invertiert das letzte Bit
+};  
+
+// Funktion zum Berechnen des Gesamtergebnisses
+const calculateTotalXOR = () => {
+  const xorValues = [
+    payer.value === 'A' ? calculateInvertedXOR(sharedSecrets.value.AB, sharedSecrets.value.AC, sharedSecrets.value.AD, sharedSecrets.value.AE) : calculateXOR(sharedSecrets.value.AB, sharedSecrets.value.AC, sharedSecrets.value.AD, sharedSecrets.value.AE),
+    payer.value === 'B' ? calculateInvertedXOR(sharedSecrets.value.AB, sharedSecrets.value.BC, sharedSecrets.value.BD, sharedSecrets.value.BE) : calculateXOR(sharedSecrets.value.AB, sharedSecrets.value.BC, sharedSecrets.value.BD, sharedSecrets.value.BE),
+    payer.value === 'C' ? calculateInvertedXOR(sharedSecrets.value.AC, sharedSecrets.value.BC, sharedSecrets.value.CD, sharedSecrets.value.CE) : calculateXOR(sharedSecrets.value.AC, sharedSecrets.value.BC, sharedSecrets.value.CD, sharedSecrets.value.CE),
+    payer.value === 'D' ? calculateInvertedXOR(sharedSecrets.value.AD, sharedSecrets.value.BD, sharedSecrets.value.CD, sharedSecrets.value.DE) : calculateXOR(sharedSecrets.value.AD, sharedSecrets.value.BD, sharedSecrets.value.CD, sharedSecrets.value.DE),
+    payer.value === 'E' ? calculateInvertedXOR(sharedSecrets.value.AE, sharedSecrets.value.BE, sharedSecrets.value.CE, sharedSecrets.value.DE) : calculateXOR(sharedSecrets.value.AE, sharedSecrets.value.BE, sharedSecrets.value.CE, sharedSecrets.value.DE),
+  ];
+  return calculateXOR(...xorValues);
+};
+
+const totalXOR = computed(() => calculateTotalXOR());
 
 </script>
 
 <template>
     <div class="card button">
-        <a href="/uikit/simulation">
+        <a href="/uikit/povA">
         <Button label="POV A" severity="secondary" class="mb-2 mr-2 secondary" /> </a>
         <a href="/uikit/povB">
         <Button label="POV B" severity="secondary"  class="mb-2 mr-2 secondary " /> </a>
@@ -41,11 +76,19 @@ const shared_key = ref(null);
                       <th>Value</th>
                     </tr>
                     <tr>
-                      <td>ED</td>
+                      <td>EA</td>
                       <td>0</td>
                     </tr>
                     <tr>
-                      <td>EA</td>
+                      <td>EB</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>EC</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>ED</td>
                       <td>1</td>
                     </tr>
                   </table>
@@ -82,16 +125,39 @@ const shared_key = ref(null);
                   </table>
             </div>
 
-            <div class="card fig">
+            <div class="card table1">
                 
-                <div class="circle">
-                    <div class="block dinerA">A</div>
-                    <div class="block dinerB">B</div>
-                    <div class="block dinerC">C</div>
-                    <div class="block dinerD">D</div>
-                    <div class="block dinerE">E</div>
-                    <div class="block result">Result:</div>
-                </div>
+                <h5>POV E</h5>
+                <table>
+                    <tr>
+                      <th>Broadcast</th>
+                      <th>Value</th>
+                    </tr>
+                    <tr>
+                      <td>A</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>E</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Result</td>
+                        <td>1</td>
+                    </tr>
+                </table>
             </div>
 
         </div>

@@ -2,6 +2,10 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
 
+//necessary library for random Button
+import store from './store';
+
+
 import PrimeVue from 'primevue/config';
 import AutoComplete from 'primevue/autocomplete';
 import Accordion from 'primevue/accordion';
@@ -112,6 +116,10 @@ import '@/assets/styles.scss';
 
 const app = createApp(App);
 
+//necessary for random Button 
+app.use(store);
+
+
 app.use(router);
 app.use(PrimeVue, { ripple: true });
 app.use(ToastService);
@@ -220,5 +228,6 @@ app.component('TreeSelect', TreeSelect);
 app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('VirtualScroller', VirtualScroller);
+
 
 app.mount('#app');

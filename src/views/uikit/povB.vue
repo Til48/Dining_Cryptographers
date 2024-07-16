@@ -17,7 +17,7 @@ const shared_key = ref(null);
 
 <template>
     <div class="card button">
-        <a href="/uikit/simulation">
+        <a href="/uikit/povA">
         <Button label="POV A" severity="secondary" class="mb-2 mr-2 secondary" /> </a>
         <a href="/uikit/povB">
         <Button label="POV B" severity="secondary"  class="mb-2 mr-2 secondary raised" /> </a>
@@ -46,6 +46,14 @@ const shared_key = ref(null);
                     </tr>
                     <tr>
                       <td>BA</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>BD</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                      <td>BE</td>
                       <td>1</td>
                     </tr>
                   </table>
@@ -82,16 +90,39 @@ const shared_key = ref(null);
                   </table>
             </div>
 
-            <div class="card fig">
+            <div class="card table1">
                 
-                <div class="circle">
-                    <div class="block dinerA">A</div>
-                    <div class="block dinerB">B</div>
-                    <div class="block dinerC">C</div>
-                    <div class="block dinerD">D</div>
-                    <div class="block dinerE">E</div>
-                    <div class="block result">Result:</div>
-                </div>
+                <h5>POV B</h5>
+                <table>
+                    <tr>
+                      <th>Broadcast</th>
+                      <th>Value</th>
+                    </tr>
+                    <tr>
+                      <td>A</td>
+                      <td>0</td>
+                    </tr>
+                    <tr>
+                      <td>B</td>
+                      <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>E</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Result</td>
+                        <td>1</td>
+                    </tr>
+                </table>
             </div>
 
         </div>
